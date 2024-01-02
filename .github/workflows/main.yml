@@ -23,7 +23,7 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: $SNYK_TOKEN
+          SNYK_TOKEN: $SNYK_TOKEN | ${{ secrets.HCA_SECRET_KEY }}
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
