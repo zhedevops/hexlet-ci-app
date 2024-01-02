@@ -18,8 +18,8 @@ jobs:
           HCA_SECRET: ${{ secrets.HCA_SECRET }}
       - name: Test printing your secret (Remove this step in production)
         run: cat $HOME/secrets/token_snyk.txt
-      - name: Test printing your secret (Remove this step in production)
-        run: echo "$SNYK_TOKEN"
+      - name: Test printing your secret 2 (Remove this step in production)
+        run: echo $SNYK_TOKEN
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
