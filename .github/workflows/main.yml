@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
       - name: set up and build npm
         run: make setup
-      - name: start npm
-        run: make start
+#      - name: start npm
+#        run: make start
       - name: run tests
         run: make test
       - name: Run linter
