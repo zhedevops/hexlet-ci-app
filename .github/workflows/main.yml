@@ -12,6 +12,6 @@ jobs:
 
   steps:
     - uses: actions/checkout@v3
-
-    - run: make install
+    - name: set up npm
+      run: make install
 
