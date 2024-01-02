@@ -18,6 +18,8 @@ jobs:
           HCA_SECRET: ${{ secrets.HCA_SECRET }}
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
+        env:
+          HCA_SECRET: ${{ secrets.HCA_SECRET }}
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
