@@ -18,6 +18,7 @@ jobs:
           HCA_SECRET: ${{ secrets.HCA_SECRET }}
       - run: |
           echo ${{ secrets.HCA_SECRET }}
+      - run: snyk auth
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
