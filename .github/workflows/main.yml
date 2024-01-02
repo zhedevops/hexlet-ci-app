@@ -16,12 +16,10 @@ jobs:
         run: ./decrypt_secret.sh
         env:
           HCA_SECRET: ${{ secrets.HCA_SECRET }}
-      - run: |
-          echo ${{ secrets.HCA_SECRET }}
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: ${{ $HOME/secrets/token_snyk.txt }}
+          SNYK_TOKEN: echo $HOME/secrets/token_snyk.txt
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
