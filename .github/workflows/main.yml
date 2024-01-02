@@ -12,18 +12,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Decrypt large secret
-        run: ./decrypt_secret.sh
-        env:
-          HCA_SECRET: ${{ secrets.HCA_SECRET }}
-      - name: Test printing your secret (Remove this step in production)
-        run: cat $HOME/secrets/token_snyk.txt
-      - name: Test printing your secret 2 (Remove this step in production)
-        run: export SNYK_TOKEN=`cat $HOME/secrets/token_snyk.txt` | echo $SNYK_TOKEN
+#      - name: Decrypt large secret
+#        run: ./decrypt_secret.sh
+#        env:
+#          HCA_SECRET: ${{ secrets.HCA_SECRET }}
+#      - name: Test printing your secret (Remove this step in production)
+#        run: cat $HOME/secrets/token_snyk.txt
+#      - name: Test printing your secret 2 (Remove this step in production)
+#        run: export SNYK_TOKEN=`cat $HOME/secrets/token_snyk.txt` | echo $SNYK_TOKEN
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: $SNYK_TOKEN | ${{ secrets.HCA_SECRET_KEY }}
+          SNYK_TOKEN: ${{ secrets.HCA_SECRET_KEY }}
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
