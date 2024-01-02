@@ -19,7 +19,7 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: $(cat $HOME/secrets/token_snyk.txt)
+          SNYK_TOKEN: $SNYK_TOKEN
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
